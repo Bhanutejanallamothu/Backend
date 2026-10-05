@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private static final String SECRET_KEY = "your-very-secret-key-your-very-secret-key";
+    private static final String SECRET_KEY = System.getenv("JWT_SECRET") != null ? System.getenv("JWT_SECRET") : "dev-fallback-key-replace-with-env-jwt-secret-in-production";
     private static final long EXPIRATION_TIME = 86400000; // 1 day
 
     private Key getSigningKey() {
